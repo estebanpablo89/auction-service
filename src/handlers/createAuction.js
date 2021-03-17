@@ -13,6 +13,9 @@ async function createAuction(event, context) {
     title,
     status: 'OPEN',
     createdAt: now.toISOString(),
+    highestBid: {
+      amount: 0,
+    },
   };
 
   try {
@@ -30,7 +33,7 @@ async function createAuction(event, context) {
 
   return {
     statusCode: 201,
-    body: JSON.stringify({ auction }),
+    body: JSON.stringify(auction),
   };
 }
 
