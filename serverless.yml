@@ -12,7 +12,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: us-east-2
   environment:
-    AUCTIONS_TABLE_NAME: ${self:custon.AuctionsTable.name}
+    AUCTIONS_TABLE_NAME: ${self:custom.AuctionsTable.name}
   iamRoleStatements:
     - ${file(iam/AuctionsTableIAM.yml):AuctionsTableIAM}
 
