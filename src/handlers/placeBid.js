@@ -7,7 +7,7 @@ import placeBidSchema from '../lib/schemas/placeBidSchema';
 
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 
-async function placeBid(event, context) {
+async function placeBid(event, context, callback) {
   const { id } = event.pathParameters;
   const { amount } = event.body;
   const { email } = event.requestContext.authorizer;
@@ -16,9 +16,14 @@ async function placeBid(event, context) {
 
   // Bid identity validation
   if (email === auction.seller) {
-    throw new createError.Forbidden(
-      'You cannot bid on your own auctions'
-    );
+    // throw new createError.Forbidden(
+    //   'You cannot bid on your own auctions'
+    // );
+    callback(null, {
+      statusCode: 403,
+      body: JSON.stringify('You cannot bid on your own auctions'),
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   // Avoid double bidding
