@@ -1,17 +1,18 @@
-# Codingly.io: Base Serverless Framework Template
+# Serverless Framework Bootcamp: Node.js, AWS & Microservices
 
-https://codingly.io
-
-## What's included
-* Folder structure used consistently across our projects.
-* [serverless-pseudo-parameters plugin](https://www.npmjs.com/package/serverless-pseudo-parameters): Allows you to take advantage of CloudFormation Pseudo Parameters.
-* [serverless-bundle plugin](https://www.npmjs.com/package/serverless-pseudo-parameters): Bundler based on the serverless-webpack plugin - requires zero configuration and fully compatible with ES6/ES7 features.
+## Auction service project
+* REST API and CRUD endpoints (AWS Lambda, API Gateway)
+* Data persistence (AWS DynamoDB)
+* Message Queues for cross-service communication (AWS SQS)
+* Scheduled event triggers (AWS EventBridge)
+* Object storage on the cloud (AWS S3)
+* Email notifications (AWS SES)
+* Middleware
+* Authentication and Authorization (Lambda Authorizer)
+* Data validation and error handling
 
 ## Getting started
 ```
-sls create --name YOUR_PROJECT_NAME --template-url https://github.com/codingly-io/sls-base
-cd YOUR_PROJECT_NAME
-npm install
+npm i
+serverless deploy
 ```
-
-You are ready to go!
